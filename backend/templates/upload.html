@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Upload Image</h2>
+
+<input type="file" id="fileInput"><br><br>
+
+<img id="preview" width="200" style="display:none; border-radius:10px;"><br><br>
+
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" id="hiddenFile" hidden>
+    <button type="submit">Check Deepfake</button>
+</form>
+
+{% if result %}
+<div class="card">
+    <h3>Result: {{ result }}</h3>
+    <h3>Confidence: {{ confidence }}</h3>
+</div>
+{% endif %}
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const preview = document.getElementById('preview');
+const hiddenFile = document.getElementById('hiddenFile');
+
+fileInput.onchange = function() {
+    const file = this.files[0];
+
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+        hiddenFile.files = this.files;
+    }
+}
+</script>
+
+{% endblock %}
