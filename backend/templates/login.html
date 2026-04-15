@@ -1,16 +1,49 @@
 {% extends "base.html" %}
-
 {% block content %}
-<div class="container">
-    <h2>Login</h2>
 
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600">
+
+<div class="bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-2xl w-96">
+
+    <!-- Title -->
+    <h2 class="text-3xl font-bold text-center mb-2">Welcome Back 👋</h2>
+    <p class="text-center text-gray-500 mb-6">Login to continue</p>
+
+    <!-- Form -->
     <form method="POST">
-        <input name="email" type="email" placeholder="Email"><br>
-        <input name="password" type="password" placeholder="Password"><br>
 
-        <button type="submit">Login</button>
+        <!-- Email -->
+        <div class="mb-4">
+            <input name="email" type="email" placeholder="Email"
+                   class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+            <input name="password" type="password" placeholder="Password"
+                   class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Login Button -->
+        <button class="w-full bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg transition duration-300">
+            Login
+        </button>
+
     </form>
 
-    <p>Don't have an account? <a href="/register">Register</a></p>
+    <!-- Links -->
+    <div class="flex justify-between mt-4 text-sm">
+        <a href="/forgot-password" class="text-blue-500 hover:underline">
+            Forgot Password?
+        </a>
+
+        <a href="/register" class="text-green-500 hover:underline">
+            Create Account
+        </a>
+    </div>
+
 </div>
+
+</div>
+
 {% endblock %}

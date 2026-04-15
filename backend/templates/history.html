@@ -1,18 +1,22 @@
 {% extends "base.html" %}
-
 {% block content %}
-<h2>Your History</h2>
+
+<h2 class="text-2xl font-bold mb-6">History</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
 {% for row in data %}
-<div class="card">
-    <img src="/uploads/{{ row[0].split('\\')[-1] }}" width="150"> 
-         width="150" 
-         style="border-radius:10px;"><br><br>
+<div class="bg-white p-4 rounded-xl shadow">
+
+    <img src="/uploads/{{ row[0] }}" class="w-full h-40 object-cover rounded mb-3">
 
     <p><b>Result:</b> {{ row[1] }}</p>
     <p><b>Confidence:</b> {{ row[2] }}</p>
-    <p><b>Date:</b> {{ row[3] }}</p>
+    <p class="text-sm text-gray-500">{{ row[3] }}</p>
+
 </div>
 {% endfor %}
+
+</div>
 
 {% endblock %}

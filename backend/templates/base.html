@@ -2,57 +2,27 @@
 <html>
 <head>
     <title>Deepfake Detector</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .container {
-            width: 350px;
-            margin: 80px auto;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #ff7a18;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        a {
-            color: #ffd;
-            text-decoration: none;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 40px;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="{{ 'bg-gray-900 text-white' if theme=='dark' else 'bg-gray-100 text-black' }}">
+
+<!-- Navbar -->
+<nav class="flex justify-between items-center p-4 shadow bg-blue-600 text-white">
+    <h1 class="text-xl font-bold">🧠 Deepfake AI</h1>
+
+    <div>
+        <a href="/dashboard" class="mr-4">Dashboard</a>
+        <a href="/upload" class="mr-4">Upload</a>
+        <a href="/history" class="mr-4">History</a>
+        <a href="/toggle-theme" class="mr-4">🌙 Theme</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<div class="p-6">
     {% block content %}{% endblock %}
+</div>
+
 </body>
 </html>
